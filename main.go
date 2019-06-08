@@ -4,15 +4,10 @@ import "Go_library/utility"
 
 
 func main() {
-	colours := map[string]interface{}{
-		"check":map[string]interface{}{
-			"check":"check",
-			"check1":1,
-		},
-	}
+	colours := []byte(`{"Name":"Eve","Age":6,"Parents":["Alice","Bob"]}`)
 	utility.Info(colours)
-	utility.Success(colours)
-	utility.Warning(colours)
-	utility.Error(colours)
+	// utility.Success(colours)
+	// utility.Warning(colours)
+	// utility.Error(colours)
 }
 
