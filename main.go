@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-import "../../dev/Go_library/utility"
+import "Go_library/utility"
 
 func main() {
 	fmt.Println("Hello")
