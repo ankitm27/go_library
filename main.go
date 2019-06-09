@@ -13,6 +13,7 @@ func main() {
 	// utility.Error(colours)
 	const host = utility.BaseUrlRedis
 	fmt.Println(host)
-	utility.ExampleNewClient(host)
-
+	// utility.ExampleNewClient(host)
+	// http.HandleFunc("/ws", utility.Handler)
+	// utility.Handler()
 }
