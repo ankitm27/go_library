@@ -6,7 +6,7 @@ import (
 	"github.com/go-redis/redis"
 )
 
-func ExampleNewClient(host string) {
+func RedisClient(host string) {
 	client := redis.NewClient(&redis.Options{
 		Addr:     host + ":6379",
 		Password: "",
@@ -14,6 +14,8 @@ func ExampleNewClient(host string) {
 	})
 
 	pong, err := client.Ping().Result()
+	if err != nil {
+		fmt.Println("err", err)
+	}
 	fmt.Println("pong", pong)
-	fmt.Println("err", err)
 }
