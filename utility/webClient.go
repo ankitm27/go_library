@@ -14,17 +14,6 @@ var err error
 
 func WebClient(message string) {
 	StopCharacter := "\r\n\r\n"
-	// addr := strings.Join([]string{BackendUrl, strconv.Itoa(BackendPort)}, ":")
-	// conn, err := net.Dial("tcp", addr)
-	// fmt.Println(reflect.TypeOf(conn))
-	// defer conn.Close()
-	// if err != nil {
-	// log.Fatalln(err)
-	// }
-
-	// if !isConnectionAva == "" {
-	// 	WebClientConnection()
-	// }
 	Conn := WebClientConnection()
 	fmt.Println("conn", Conn)
 	Conn.Write([]byte(message))
@@ -44,7 +33,6 @@ func WebClientConnection() net.Conn {
 			log.Fatalln(err)
 		}
 		isConnectionAvailable = true
-		// return Conn
 	}
 	return Conn
 }
