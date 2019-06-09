@@ -1,8 +1,6 @@
 package main
 
-import (
-	"Go_library/utility"
-)
+import "Go_library/utility"
 
 var serverAddress = ":8080"
 
@@ -18,6 +16,7 @@ func main() {
 	// http.HandleFunc("/ws", utility.WsHandler)
 	// utility.Handler()
 	// log.Fatal(http.ListenAndServe(serverAddress, nil))
-	utility.WsHandler()
+
 	utility.WebClient()
+
 }

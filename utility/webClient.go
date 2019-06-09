@@ -1,15 +1,33 @@
 package utility
 
 import (
-	"bufio"
-	"fmt"
+	"log"
 	"net"
+	"strconv"
+	"strings"
 )
 
 func WebClient() {
-	conn, _ := net.Dial("tcp", "127.0.0.1:8080")
-	var a = "check"
-	fmt.Fprintf(conn, a+"\n")
-	message, _ := bufio.NewReader(conn).ReadString('\n')
-	fmt.Println("message", message)
+	ip := "127.0.0.1"
+	port := 3333
+	message := "Ping"
+	StopCharacter := "\r\n\r\n"
+
+	addr := strings.Join([]string{ip, strconv.Itoa(port)}, ":")
+	conn, err := net.Dial("tcp", addr)
+
+	defer conn.Close()
+
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	conn.Write([]byte(message))
+	conn.Write([]byte(StopCharacter))
+	log.Printf("Send: %s", message)
+
+	buff := make([]byte, 1024)
+	n, _ := conn.Read(buff)
+	log.Printf("Receive: %s", buff[:n])
+
 }
