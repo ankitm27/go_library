@@ -1,6 +1,8 @@
 package main
 
-import "Go_library/utility"
+import (
+	"go_library/utility"
+)
 
 var serverAddress = ":8080"
 
@@ -16,7 +18,14 @@ func main() {
 	// http.HandleFunc("/ws", utility.WsHandler)
 	// utility.Handler()
 	// log.Fatal(http.ListenAndServe(serverAddress, nil))
-
-	utility.WebClient()
+	// const host = utility.BackendUrl
+	// const port = utility.BackendPort
+	// fmt.Println("host", host)
+	// fmt.Println("port", port)
+	// utility.WebClientConnection()
+	b := []byte(`{"Name":"Eve","Age":6,"Parents":["Alice","Bob"]}`)
+	var message = string(b)
+	utility.Info(message)
+	// utility.WebClient(host, port, message)
 
 }

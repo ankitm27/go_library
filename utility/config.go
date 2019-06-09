@@ -1,3 +1,4 @@
 package utility
 
-const BaseUrlRedis = "localhost"
+const BackendUrl = "localhost";
+const BackendPort = 3333;

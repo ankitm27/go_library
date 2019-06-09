@@ -23,8 +23,8 @@ func printJson(dataObj []byte) {
 	}
 }
 
-func Info(data []byte) {
-	printJson(data)
+func Info(data string) {
+	WebClient(data)
 }
 
 func Success(data []byte) {
