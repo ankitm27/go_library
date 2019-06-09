@@ -3,7 +3,11 @@ package main
 import (
 	"Go_library/utility"
 	"fmt"
+	"log"
+	"net/http"
 )
+
+var serverAddress = ":8080"
 
 func main() {
 	// colours := []byte(`{"Name":"Eve","Age":6,"Parents":["Alice","Bob"]}`)
@@ -14,6 +18,7 @@ func main() {
 	const host = utility.BaseUrlRedis
 	fmt.Println(host)
 	// utility.ExampleNewClient(host)
-	// http.HandleFunc("/ws", utility.Handler)
+	http.HandleFunc("/ws", utility.WsHandler)
 	// utility.Handler()
+	log.Fatal(http.ListenAndServe(serverAddress, nil))
 }
